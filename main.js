@@ -55,7 +55,7 @@ class Producto {
     }
 }
 
-//testing
+//testing..
 
 console.log ('testing ...')
 
