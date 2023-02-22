@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "desafios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGustavo2022/p_Backend_c39710_Acosta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AGustavo2022/p_Backend_c39710_Acosta/issues"
+  },
+  "homepage": "https://github.com/AGustavo2022/p_Backend_c39710_Acosta#readme"
+}

@@ -73,11 +73,3 @@ productManager.getProductById('abc123')
 
 productManager.getProductById('abc1234')
 
-
-
-
-gdfgdfgdfgdfgdf
-
-
-
-
