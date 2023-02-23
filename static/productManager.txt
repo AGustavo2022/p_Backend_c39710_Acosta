@@ -1,0 +1,1 @@
+{"id":"ab4bbcc5-0bfa-4ef4-b302-81039fec045d","title":"Producto Prueba4","description":"Este es un producto de prueba2","prince":300,"thumbnail":"sin imagen","code":"abc124","stock":35}
