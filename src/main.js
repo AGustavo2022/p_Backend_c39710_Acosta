@@ -25,7 +25,7 @@ class ProductManager {
                 ...producto
             }
             this.productos.push(newProducto);
-            await fs.writeFile(this.path, JSON.stringify(this.productos))
+            await fs.writeFile(this.path, JSON.stringify(this.productos), null, 2)
         }else{
             console.log('El producto ya existe')
         }        
@@ -90,11 +90,11 @@ console.log ('testing ...')
 
 const productManager = new ProductManager ('./static/productManager.txt')
 
-//console.log(await productManager.getProduct())
+console.log(await productManager.getProduct())
 
-//await productManager.addProduct(new Producto('Producto Prueba','Este es un producto de prueba',200,'sin imagen','abc123',25))
+await productManager.addProduct(new Producto('Producto Prueba','Este es un producto de prueba',200,'sin imagen','abc123',25))
 
-//console.log(await productManager.getProduct())
+console.log(await productManager.getProduct())
 
 //await productManager.getProductById('6bac27d8-f732-415c-8b61-e34109e8a620')
 
@@ -102,7 +102,7 @@ const productManager = new ProductManager ('./static/productManager.txt')
 
 //await productManager.deleteProductId('6bac27d8-f732-415c-8b61-e34109e8a620')
 
-console.log(await productManager.getProduct())
+//console.log(await productManager.getProduct())
 
 
 

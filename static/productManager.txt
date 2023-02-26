@@ -1,1 +1,1 @@
-{"id":"6bac27d8-f732-415c-8b61-e34109e8a620","title":"Producto Prueba","description":"Este es un producto de prueba2","prince":300,"thumbnail":"sin imagen","code":"abc124","stock":40}
+[]
