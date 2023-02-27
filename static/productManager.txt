@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "id": "21c488a8-0fcb-4e62-93b9-97b378b41848",
+    "title": "Producto Prueba",
+    "description": "Este es un producto de prueba",
+    "prince": 200,
+    "thumbnail": "sin imagen",
+    "code": "abc123",
+    "stock": 40
+  },
+  {
+    "id": "6bcecb3a-c126-43d5-a2bf-cdf851ad1713",
+    "title": "Producto Prueba 2",
+    "description": "Este es un producto de prueba 2",
+    "prince": 300,
+    "thumbnail": "sin imagen",
+    "code": "abc1234",
+    "stock": 101
+  },
+  {
+    "id": "f1c00d14-1815-4898-a18f-bc130c489d67",
+    "title": "Producto Prueba 3",
+    "description": "Este es un producto de prueba 3",
+    "prince": 400,
+    "thumbnail": "sin imagen",
+    "code": "abc12345",
+    "stock": 32
+  }
+]
