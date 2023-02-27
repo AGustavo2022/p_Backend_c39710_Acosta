@@ -92,13 +92,13 @@ const productManager = new ProductManager ('./static/productManager.txt')
 
 //console.log(await productManager.getProduct())
 
-console.log(await productManager.getProductById('6bcecb3a-c126-43d5-a2bf-cdf851ad1713'))
+//console.log(await productManager.getProductById('6bcecb3a-c126-43d5-a2bf-cdf851ad1713'))
 
 //await productManager.updateProduct('6bcecb3a-c126-43d5-a2bf-cdf851ad1713','Producto Prueba 2','Este es un producto de prueba 2',300,'sin imagen','abc1234',101)
 
 //await productManager.deleteProductId('55a406d7-aaa8-4438-a7c8-595a30d9c183')
 
-//console.log(await productManager.getProduct())
+console.log(await productManager.getProduct())
 
 
 
