@@ -2,7 +2,7 @@ import fs from 'fs/promises'
 import { randomUUID } from 'crypto'
 
 
-class ProductManager {
+ export class ProductManager {
 
     constructor(path) {
         this.productos = []
@@ -67,7 +67,7 @@ class ProductManager {
     }
 }
 
-class Producto {
+export class Producto {
     constructor(title, description, prince, thumbnail, code, stock) {
         this.title = title
         this.description = description
@@ -80,9 +80,9 @@ class Producto {
 
 //testing..
 
-console.log ('testing ...')
+//console.log ('testing ...')
 
-const productManager = new ProductManager ('./static/productManager.txt')
+//const productManager = new ProductManager ('./static/productManager.txt')
 
 //console.log(await productManager.getProduct())
 
@@ -98,7 +98,7 @@ const productManager = new ProductManager ('./static/productManager.txt')
 
 //await productManager.deleteProductId('55a406d7-aaa8-4438-a7c8-595a30d9c183')
 
-console.log(await productManager.getProduct())
+//console.log(await productManager.getProduct())
 
 
 
