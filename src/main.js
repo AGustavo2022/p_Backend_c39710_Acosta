@@ -86,9 +86,9 @@ export class Producto {
 
 //console.log(await productManager.getProduct())
 
-//await productManager.addProduct(new Producto('Producto Prueba','Este es un producto de prueba',200,'sin imagen','abc123',25))
+//await productManager.addProduct(new Producto('Producto Prueba 6','Este es un producto de prueba 6',200,'sin imagen','abc537v8',25))
 
-//await productManager.addProduct(new Producto('Producto Prueba 3','Este es un producto de prueba 3',400,'sin imagen','abc12345',32))
+//await productManager.addProduct(new Producto('Producto Prueba 7','Este es un producto de prueba 7',400,'sin imagen','abc7746',32))
 
 //console.log(await productManager.getProduct())
 
