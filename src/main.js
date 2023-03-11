@@ -5,18 +5,18 @@ import { randomUUID } from 'crypto'
  export class ProductManager {
 
     constructor(path) {
-        this.productos = []
+        this.products = []
         this.path = path
     }
     
     async getProduct() {
-        this.productos = JSON.parse(await fs.readFile(this.path, 'utf-8'))
-        return this.productos
+        this.products = JSON.parse(await fs.readFile(this.path, 'utf-8'))
+        return this.products
     }
 
     async addProduct (producto) {        
-        const productosTxt = await this.getProduct()
-        const idProducto = productosTxt.find(e => e.code == producto.code);
+        const productsTxt = await this.getProduct()
+        const idProducto = productsTxt.find(e => e.code == producto.code);
         if (idProducto) {
             throw new Error ('El producto ya existe')
         }
@@ -25,11 +25,11 @@ import { randomUUID } from 'crypto'
             id: idProd,
             ...producto
         }
-        this.productos.push(newProducto);
-        await fs.writeFile(this.path, JSON.stringify(this.productos, null, 2))       
+        this.products.push(newProducto);
+        await fs.writeFile(this.path, JSON.stringify(this.products, null, 2))       
     }
 
-    async updateProduct (id, title,description,prince,thumbnail,code,stock) {
+    async updateProduct (id,title, description, code, prince, status, stock, category, thumbnail) {
         const productosTxt = await this.getProduct()
         const idexProducto = productosTxt.findIndex(e => e.id === id);      
         if (idexProducto == -1) {
@@ -39,10 +39,12 @@ import { randomUUID } from 'crypto'
             ...{id},
             title: title,
             description: description,
-            prince: prince,
-            thumbnail: thumbnail,
             code: code,
-            stock: stock
+            prince: prince,
+            status: status,
+            stock: stock,
+            category: category,
+            thumbnail: thumbnail
         }
         await fs.writeFile(this.path, JSON.stringify(productosTxt, null, 2))
     }
@@ -67,14 +69,16 @@ import { randomUUID } from 'crypto'
     }
 }
 
-export class Producto {
-    constructor(title, description, prince, thumbnail, code, stock) {
+export class Products {
+    constructor(title, description, code, prince, status, stock, category, thumbnail) {
         this.title = title
         this.description = description
-        this.prince = prince
-        this.thumbnail = thumbnail
         this.code = code
+        this.prince = prince
+        this.status = status
         this.stock = stock
+        this.category = category
+        this.thumbnail = thumbnail
     }
 }
 
