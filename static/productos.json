@@ -90,25 +90,39 @@
     "stock": 25
   },
   {
-    "id": "be3d0742-eec6-4d06-8abb-64b74706dc49",
+    "id": "74325904-d4f7-4f24-ad19-5af449a90873",
     "title": "Producto Prueba",
     "description": "Este es un producto de prueba11",
-    "code": "abc1236985",
-    "prince": 200,
+    "code": "abc1555",
+    "prince": 300,
     "status": "status",
-    "stock": 40,
+    "stock": 600,
     "category": "category",
     "thumbnail": "sin imagen"
   },
   {
-    "id": "be3d0742-eec6-4d06-8abb-64b74706dc49",
+    "id": "634492cb-7332-4a3b-aba1-6006409d9723",
     "title": "Producto Prueba",
     "description": "Este es un producto de prueba12",
-    "code": "abc1236985555",
-    "prince": 200,
+    "code": "abc4555",
+    "prince": 300,
     "status": "status",
-    "stock": 40,
+    "stock": 400,
     "category": "category",
     "thumbnail": "sin imagen"
+  },
+  {
+    "id": "35aeac0d-8435-45db-a7ad-c4d9af743e31",
+    "title": {
+      "id": "35aeac0d-8435-45db-a7ad-c4d9af743e31",
+      "title": "Producto Prueba",
+      "description": "Este es un producto de prueba13",
+      "code": "art55",
+      "prince": 300,
+      "status": "status",
+      "stock": 500,
+      "category": "category",
+      "thumbnail": "sin imagen"
+    }
   }
 ]

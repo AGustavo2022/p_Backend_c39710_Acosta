@@ -20,7 +20,7 @@ import { randomUUID } from 'crypto'
         if (idProducto) {
             throw new Error ('El producto ya existe')
         }
-        let idProd = randomUUID();           
+        let idProd = randomUUID()           
         const newProducto = {
             id: idProd,
             ...producto
@@ -81,31 +81,4 @@ export class Products {
         this.thumbnail = thumbnail
     }
 }
-
-//testing..
-
-//console.log ('testing ...')
-
-//const productManager = new ProductManager ('./static/productManager.txt')
-
-//console.log(await productManager.getProduct())
-
-//await productManager.addProduct(new Producto('Producto Prueba 6','Este es un producto de prueba 6',200,'sin imagen','abc537v8',25))
-
-//await productManager.addProduct(new Producto('Producto Prueba 7','Este es un producto de prueba 7',400,'sin imagen','abc7746',32))
-
-//console.log(await productManager.getProduct())
-
-//console.log(await productManager.getProductById('6bcecb3a-c126-43d5-a2bf-cdf851ad1713'))
-
-//await productManager.updateProduct('6bcecb3a-c126-43d5-a2bf-cdf851ad1713','Producto Prueba 2','Este es un producto de prueba 2',300,'sin imagen','abc1234',101)
-
-//await productManager.deleteProductId('55a406d7-aaa8-4438-a7c8-595a30d9c183')
-
-//console.log(await productManager.getProduct())
-
-
-
-
-
 
