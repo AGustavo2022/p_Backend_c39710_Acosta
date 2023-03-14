@@ -1,95 +1,5 @@
 [
   {
-    "id": "21c488a8-0fcb-4e62-93b9-97b378b41848",
-    "title": "Producto Prueba",
-    "description": "Este es un producto de prueba",
-    "prince": 200,
-    "thumbnail": "sin imagen",
-    "code": "abc123",
-    "stock": 40
-  },
-  {
-    "id": "6bcecb3a-c126-43d5-a2bf-cdf851ad1713",
-    "title": "Producto Prueba 2",
-    "description": "Este es un producto de prueba 2",
-    "prince": 300,
-    "thumbnail": "sin imagen",
-    "code": "abc1234",
-    "stock": 101
-  },
-  {
-    "id": "f1c00d14-1815-4898-a18f-bc130c489d67",
-    "title": "Producto Prueba 3",
-    "description": "Este es un producto de prueba 3",
-    "prince": 400,
-    "thumbnail": "sin imagen",
-    "code": "abc12345",
-    "stock": 32
-  },
-  {
-    "id": "59cd6ab8-5102-46b8-81f8-c7ade2f65d95",
-    "title": "Producto Prueba 4",
-    "description": "Este es un producto de prueba",
-    "prince": 200,
-    "thumbnail": "sin imagen",
-    "code": "abc1237",
-    "stock": 25
-  },
-  {
-    "id": "3ebbe87d-2748-4be9-97e4-65f1354903e7",
-    "title": "Producto Prueba 5",
-    "description": "Este es un producto de prueba 3",
-    "prince": 400,
-    "thumbnail": "sin imagen",
-    "code": "abc12347",
-    "stock": 32
-  },
-  {
-    "id": "4e12c13a-e2a4-48b7-bd16-4ef35b1a111e",
-    "title": "Producto Prueba 6",
-    "description": "Este es un producto de prueba 6",
-    "prince": 200,
-    "thumbnail": "sin imagen",
-    "code": "abc537v8",
-    "stock": 25
-  },
-  {
-    "id": "1f575454-d97b-4954-b1fc-2ba54d2b2ff3",
-    "title": "Producto Prueba 7",
-    "description": "Este es un producto de prueba 7",
-    "prince": 400,
-    "thumbnail": "sin imagen",
-    "code": "abc7746",
-    "stock": 32
-  },
-  {
-    "id": "b558efe4-b984-495d-ade6-eda1aaa05368",
-    "title": "Producto Prueba 8",
-    "description": "Este es un producto de prueba 8",
-    "prince": 200,
-    "thumbnail": "sin imagen",
-    "code": "abc951",
-    "stock": 25
-  },
-  {
-    "id": "329a7acd-1c3c-4534-b2ca-c2192f2c48d1",
-    "title": "Producto Prueba 9",
-    "description": "Este es un producto de prueba 9",
-    "prince": 400,
-    "thumbnail": "sin imagen",
-    "code": "abc7357",
-    "stock": 32
-  },
-  {
-    "id": "3d107135-87a6-479f-a331-24cd6a593327",
-    "title": "Producto Prueba 10",
-    "description": "Este es un producto de prueba 10",
-    "prince": 200,
-    "thumbnail": "sin imagen",
-    "code": "abc1298",
-    "stock": 25
-  },
-  {
     "id": "74325904-d4f7-4f24-ad19-5af449a90873",
     "title": "Producto Prueba",
     "description": "Este es un producto de prueba11",
@@ -107,22 +17,8 @@
     "code": "abc4555",
     "prince": 300,
     "status": "status",
-    "stock": 400,
+    "stock": 800,
     "category": "category",
     "thumbnail": "sin imagen"
-  },
-  {
-    "id": "35aeac0d-8435-45db-a7ad-c4d9af743e31",
-    "title": {
-      "id": "35aeac0d-8435-45db-a7ad-c4d9af743e31",
-      "title": "Producto Prueba",
-      "description": "Este es un producto de prueba13",
-      "code": "art55",
-      "prince": 300,
-      "status": "status",
-      "stock": 500,
-      "category": "category",
-      "thumbnail": "sin imagen"
-    }
   }
 ]
