@@ -1,14 +1,12 @@
 import { Router } from "express";
-import { ProductManager } from "../productManager.js"
+//import { ProductManager } from "../productManager.js"
 
 export const viewsRouter = Router()
 
 
 
 
-// viewsRouter.get('/', async (req, res) => {
-//     const mensajes = await mensajesManager.buscarCosas()
-//     res.render('mensajes', {
-//         pageTitle: 'Chat'
-//     })
-// })
+viewsRouter.get('/',  async (req, res) => {
+
+    res.render('index.handlebars', { titulo: 'Inicio', encabezado: 'Inicio' })
+})
