@@ -3,10 +3,7 @@ import { Router } from "express";
 
 export const viewsRouter = Router()
 
-
-
-
 viewsRouter.get('/',  async (req, res) => {
 
-    res.render('index.handlebars', { titulo: 'Inicio', encabezado: 'Inicio' })
+    res.render('index.handlebars', { titulo: 'Inicio/Handlebars ', encabezado: 'Inicio' })
 })
