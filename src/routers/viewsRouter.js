@@ -3,7 +3,17 @@ import { ProductManager } from "../productManager.js"
 
 export const viewsRouter = Router()
 
+const produtcs = new ProductManager('./static/productos.json')
+
 viewsRouter.get('/',  async (req, res) => {
 
-    res.render('index.handlebars', { titulo: 'Inicio/Handlebars ', encabezado: 'Inicio' })
+    const productslist = await produtcs.getProduct()
+
+    res.render('home.handlebars', { 
+        titulo: 'Home/Handlebars ', 
+        encabezado: 'Lista de Productos', 
+        product: [...productslist],
+        productExist: productslist.length > 0
+
+     })
 })
