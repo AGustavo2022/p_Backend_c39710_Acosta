@@ -4,6 +4,8 @@ import { engine } from 'express-handlebars'
 import { apiRouter } from "./routers/apiRouter.js"
 import { viewsRouter } from "./routers/viewsRouter.js"
 
+import { socketHandle } from "./middleware/socket.js";
+
 import { Server as SocketIOServer } from 'socket.io'
 
 const app = express();
@@ -27,6 +29,8 @@ app.use('/', viewsRouter)
 
 
 io.on('connection', async clientSocket => {
-    console.log(`nuevo cliente conectado! socket id #${clientSocket.id}`)})
+    console.log(`nuevo cliente conectado! socket id #${clientSocket.id}`)
+    await socketHandle()
+})
     
     

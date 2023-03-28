@@ -3,7 +3,7 @@ import { ProductManager } from "../productManager.js"
 
 export const viewsRouter = Router()
 
-const produtcs = new ProductManager('./static/productos.json')
+export const produtcs = new ProductManager('./static/productos.json')
 
 viewsRouter.get('/',  async (req, res) => {
     const productslist = await produtcs.getProduct()
