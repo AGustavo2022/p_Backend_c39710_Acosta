@@ -17,10 +17,15 @@ viewsRouter.get('/',  async (req, res) => {
 })
 
 viewsRouter.get('/realTimeProducts',  async (req, res) => {
+    
     const productslist = await produtcs.getProduct()
+    
     res.render('realTimeProducts.handlebars', { 
         titulo: 'RealTimeProducts ', 
         encabezado: 'Lista de Productos', 
+        product: [...productslist],
+        productExist: productslist.length > 0
+
         
      })
 })
