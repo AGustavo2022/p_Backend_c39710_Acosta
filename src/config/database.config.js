@@ -1,1 +1,1 @@
-export const MONGODB_CNS_STR = 'mongodb://localhost/coderhouse'
+export const MONGODB_CNX_STR = 'mongodb://127.0.0.1:27017'
