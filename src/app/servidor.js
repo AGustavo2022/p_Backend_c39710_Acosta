@@ -1,10 +1,10 @@
 import  express  from "express";
 import { engine } from 'express-handlebars'
 
-import { apiRouter } from "./routers/apiRouter.js"
-import { viewsRouter } from "./routers/viewsRouter.js"
+import { apiRouter } from "../routers/apiRouter.js"
+import { viewsRouter } from "../routers/viewsRouter.js"
 
-import { socketHandle } from "./middleware/socket.js";
+import { socketHandle } from "../middleware/socket.js";
 
 import { Server as SocketIOServer } from 'socket.io'
 

@@ -1,6 +1,6 @@
 
 import { io } from '../app.js'
-import { ProductManager } from "../productManager.js"
+import { ProductManager } from "../dao/productManager.js"
 
 const produtcs = new ProductManager('./static/productos.json')
 
