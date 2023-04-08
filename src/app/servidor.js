@@ -7,7 +7,7 @@ import { viewsRouter } from "../routers/viewsRouter.js"
 
 import { conectar } from "../database/mongoose.js";
 
-//import { socketHandle } from "../middleware/socket.js";
+import { socketHandle } from "../middleware/socket.js";
 
 import { Server as SocketIOServer } from 'socket.io'
 
@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars')
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(express.static('./plubic'))
+app.use(express.static('public'))
 
 
 app.use('/api', apiRouter)

@@ -4,7 +4,7 @@ import { CartsManager } from "../dao/cartsManager.js"
 
 export const cartsRouter = Router()
 
-const carritos = new CartsManager ('./static/carritos.json')
+const carritos = new CartsManager ('./public/carritos.json')
 
 
 cartsRouter.get('/:cid', async (req, res) =>{

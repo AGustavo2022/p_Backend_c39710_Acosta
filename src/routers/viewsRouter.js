@@ -3,7 +3,7 @@ import { ProductManager } from "../dao/productManager.js"
 
 export const viewsRouter = Router()
 
-export const produtcs = new ProductManager('./static/productos.json')
+export const produtcs = new ProductManager('./public/productos.json')
 
 viewsRouter.get('/',  async (req, res) => {
     const productslist = await produtcs.getProduct()

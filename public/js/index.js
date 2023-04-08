@@ -40,4 +40,4 @@ serverSocket.on('updateList', (data) => {
   }
 })
 
-serverSocket.emit('message', 'Holo me conecte desde  la web')
+//serverSocket.emit('message', 'Holo me conecte desde  la web')

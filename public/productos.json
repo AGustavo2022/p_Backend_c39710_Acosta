@@ -1,0 +1,24 @@
+[
+    {
+      "id": "74325904-d4f7-4f24-ad19-5af449a90873",
+      "title": "Producto Prueba",
+      "description": "Este es un producto de prueba11",
+      "code": "abc1555",
+      "prince": 300,
+      "status": "status",
+      "stock": 600,
+      "category": "category",
+      "thumbnail": "sin imagen"
+    },
+    {
+      "id": "634492cb-7332-4a3b-aba1-6006409d9723",
+      "title": "Producto Prueba",
+      "description": "Este es un producto de prueba12",
+      "code": "abc4555",
+      "prince": 300,
+      "status": "status",
+      "stock": 800,
+      "category": "category",
+      "thumbnail": "sin imagen"
+    }
+  ]
