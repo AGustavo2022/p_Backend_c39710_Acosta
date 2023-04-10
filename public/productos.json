@@ -12,10 +12,10 @@
     },
     {
       "id": "634492cb-7332-4a3b-aba1-6006409d9723",
-      "title": "Producto Prueba",
+      "title": "Producto Prueba2",
       "description": "Este es un producto de prueba12",
       "code": "abc4555",
-      "prince": 300,
+      "prince": 400,
       "status": "status",
       "stock": 800,
       "category": "category",
