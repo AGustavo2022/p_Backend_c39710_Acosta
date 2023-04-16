@@ -23,7 +23,7 @@ productsDbRouter.get('/',async (req,res)=>{
 
 productsDbRouter.post('/', async (req,res)=>{
     const product = req.body
-    //console.log(product)
+    console.log(product)
     await productosDb.addProduct(product)
     res.send(product)
 })

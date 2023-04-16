@@ -3,7 +3,8 @@
 import mongoose, { Schema } from 'mongoose'
 
 
-export const schemaProducts = new mongoose.Schema({
+export const schemaProducts = new Schema({
+    id: {type: Number, unique: true},
     title: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true, min: 0 },
@@ -34,7 +35,17 @@ export class ProductDBManager {
         if (idProducto) {
             throw new Error ('El producto ya existe')
         }  
-        const productDb = await this.productsDb.create(producto)
+        const productDb = await this.productsDb.create({
+            id: producto.id,
+            title: producto.title,
+            description: producto.description,
+            price: producto.price ,
+            thumbnail: producto.thumbnail,
+            stock: producto.stock ,
+            code: producto.code,
+            category: producto.category,
+            status: producto.status 
+        })
         return productDb
     }
 
