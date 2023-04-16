@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 import { MONGODB_CNX_STR } from '../config/database.config.js'
 
 export async function conectar() {

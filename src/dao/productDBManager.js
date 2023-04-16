@@ -3,8 +3,7 @@
 import mongoose, { Schema } from 'mongoose'
 
 
-export const schemaProducts = new Schema({
-    id: {type: Number, unique: true},
+const schemaProducts = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true, min: 0 },
@@ -21,7 +20,6 @@ export class ProductDBManager {
     constructor() {
         this.iD = 0
         this.productsDb = mongoose.model('products', schemaProducts)
-        
     }
     
     async getProduct() {
@@ -35,62 +33,43 @@ export class ProductDBManager {
         if (idProducto) {
             throw new Error ('El producto ya existe')
         }  
-        const productDb = await this.productsDb.create({
-            id: producto.id,
-            title: producto.title,
-            description: producto.description,
-            price: producto.price ,
-            thumbnail: producto.thumbnail,
-            stock: producto.stock ,
-            code: producto.code,
-            category: producto.category,
-            status: producto.status 
-        })
-        return productDb
+        await this.productsDb.create(producto)
+    }
+    
+    async getProductById (id) {    
+        const productsDb = await this.productsDb.findById(id).lean()    
+        return productsDb
     }
 
-//     async updateProduct (id,updateProduct) {
-//         const productosTxt = await this.getProduct()
-//         const idexProducto = productosTxt.findIndex(e => e.id === id);      
-//         if (idexProducto == -1) {
-//             throw new Error ('El Id del producto que se quiere actualizar, No existe !!!')
-//         }
-//         productosTxt[idexProducto] = {
-//             id,
-//             ...updateProduct
-//         }
-//         await fs.writeFile(this.path, JSON.stringify(productosTxt, null, 2))
-//     }
+    async updateProduct (id,updateProduct) {
+        const productsId = await this.productsDb.findById(id).lean()          
+        if (productsId == null) {
+            throw new Error ('El Id del producto que se quiere actualizar, No existe !!!')
+        }
+        console.log(updateProduct)
+        await this.productsDb.updateOne({_id: id},{$set:updateProduct})
+    }
+    
 
-//     async getProductById (id) {        
-//         const productosTxt = await this.getProduct()
-//         const idProducto = productosTxt.find(e => e.id === id)
-//         if (!idProducto){
-//             throw new Error ('El Id del producto buscado, No existe !!!')
-//         }
-//         return idProducto
-//     }
-
-//     async deleteProductId (id) {
-//         const productosTxt = await this.getProduct()
-//         const indexArr = productosTxt.findIndex(e => e.id === id)
-//         if (indexArr == -1) {     
-//             throw new Error ('El Id del producto que se quiere eliminar, No existe !!!')
-//         }
-//         productosTxt.splice(indexArr,1)
-//         await fs.writeFile(this.path, JSON.stringify(productosTxt, null, 2))        
-//     }
-}
-
-export class Products {
-    constructor(title, description, prince, thumbnail, stock, code, category, status) {
-        this.title = title
-        this.description = description
-        this.prince = prince
-        this.thumbnail = thumbnail
-        this.stock = stock
-        this.code = code
-        this.category = category
-        this.status = status
+    async deleteProductId (id) {
+        const indexArr = await this.productsDb.findById(id).lean() 
+        if (indexArr == null) {     
+                throw new Error ('El Id del producto que se quiere eliminar, No existe !!!')
+            }
+        await this.productsDb.deleteOne({_id: id})
+            
     }
 }
+
+// export class Products {
+//     constructor(title, description, prince, thumbnail, stock, code, category, status) {
+//         this.title = title
+//         this.description = description
+//         this.prince = prince
+//         this.thumbnail = thumbnail
+//         this.stock = stock
+//         this.code = code
+//         this.category = category
+//         this.status = status
+//     }
+// }
