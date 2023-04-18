@@ -1,26 +1,26 @@
 import { Router } from "express";
-import { CartsManager } from "../dao/cartsManager.js"
+import { CartsDBManager } from "../dao/cartsDbManager.js"
 
 
-export const cartsRouter = Router()
+export const cartsDbRouter = Router()
 
-const carritos = new CartsManager ('./public/carritos.json')
+const cartsDb = new CartsDBManager ()
 
 
-cartsRouter.get('/:cid', async (req, res) =>{
+cartsDbRouter.get('/:cid', async (req, res) =>{
     let id = req.params.cid
-    const idCart = await carritos.getCartsById(id)
+    const idCart = await cartsDb.getCartsById(id)
     res.send(idCart )
 })
 
-cartsRouter.post('/', async (req, res) =>{
-    const newCarts = await carritos.postCarts()
-    res.send(newCarts)
-})
+// cartsDbRouter.post('/', async (req, res) =>{
+//     await cartsDb.postCarts()
+//     res.send('ok')
+// })
 
-cartsRouter.post('/:cid/product/:pid', async (req, res) =>{
+cartsDbRouter.post('/:cid/product/:pid', async (req, res) =>{
     let idCart = req.params.cid
     let idProduct = req.params.pid
-    const cartsProduct = await carritos.postCartsProduct(idCart,idProduct)
-    res.send(cartsProduct)
+    await cartsDb.postCartsProduct(idCart,idProduct)
+    res.send('ok')
 })

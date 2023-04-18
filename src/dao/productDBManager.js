@@ -18,7 +18,6 @@ const schemaProducts = new Schema({
 export class ProductDBManager {
 
     constructor() {
-        this.iD = 0
         this.productsDb = mongoose.model('products', schemaProducts)
     }
     
