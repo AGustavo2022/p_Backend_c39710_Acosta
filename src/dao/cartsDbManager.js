@@ -67,19 +67,7 @@ export class CartsDBManager {
         .catch(async()=>{
 
             console.log('No existe el ID del carrito')
-            
-            //await this.postCarts()
+        
         })
     }
 }
-
-// put 
-// const filter = {_id: idCarts}
-// const update = {products: [
-//     {
-//       product:  idProduct,
-//       quantity: 1
-//     }
-//   ]}
-
-// await this.cartsDb.updateOne(filter,update,{new: true,upsert: true}) 

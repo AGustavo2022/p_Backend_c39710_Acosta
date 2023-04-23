@@ -25,10 +25,10 @@ cartsDbRouter.post('/:cid/product/:pid', async (req, res) =>{
     res.send('ok POST cartsDBRouters')
 })
 
-cartsDbRouter.put('/:cid/product/:pid', async (req, res) =>{
-    let idCart = req.params.cid
-    let idProduct = req.params.pid
-    let update = req.body
-    await cartsDb.postCartsProduct(idCart,idProduct, update)
-    res.send('ok PUT cartsDBRouters')
-})
+// cartsDbRouter.put('/:cid/product/:pid', async (req, res) =>{
+//     let idCart = req.params.cid
+//     let idProduct = req.params.pid
+//     let update = req.body
+//     await cartsDb.postCartsProduct(idCart,idProduct, update)
+//     res.send('ok PUT cartsDBRouters')
+// })

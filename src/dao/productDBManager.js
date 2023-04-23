@@ -1,5 +1,3 @@
-// import fs from 'fs/promises'
-// import { randomUUID } from 'crypto'
 import mongoose, { Schema } from 'mongoose'
 
 
@@ -59,16 +57,3 @@ export class ProductDBManager {
             
     }
 }
-
-// export class Products {
-//     constructor(title, description, prince, thumbnail, stock, code, category, status) {
-//         this.title = title
-//         this.description = description
-//         this.prince = prince
-//         this.thumbnail = thumbnail
-//         this.stock = stock
-//         this.code = code
-//         this.category = category
-//         this.status = status
-//     }
-// }
