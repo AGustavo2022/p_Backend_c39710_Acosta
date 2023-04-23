@@ -2,16 +2,17 @@ import mongoose, {Schema} from 'mongoose'
 
 
 const schemaCarts = new Schema({
-    products: {
-        type:[
+    products: [
           {
             product: { type: Schema.Types.ObjectId, ref: 'products' },
             quantity: { type: Number, required: true }
           }
         ]
-      }
-    }, { versionKey: false })
+}, { versionKey: false })
 
+schemaCarts.pre('find', function(){
+    this.populate('products.product')
+})
 
 export class CartsDBManager {
 
@@ -36,34 +37,49 @@ export class CartsDBManager {
     }
 
     async postCartsProduct(idCarts, idProduct) {
+
         const idCart = await this.cartsDb.findById({_id:idCarts}).lean()
         .then(async()=> {
-            
             const idCart = await this.cartsDb.findById({_id:idCarts}).lean()
-            console.log(idCart)
+            const productId =  idCart.products.find(p => p.product.toString() === idProduct.toString())
+            if (productId){
+                
+                const qty = productId.quantity + 1
+                const iDProd = productId._id.toString()
 
 
-                // const products = {
-                //         product:idProduct,
-                //         quantity:1
-                // }
-                // await this.cartsDb.updateOne({_id: idCarts},{$push:{products:products}}) 
-            
+                await this.cartsDb.updateOne({_id: idCarts, "products._id":iDProd},
+                {
+                    $set: {"products.$.quantity":qty}
+                }) 
+
+            }else{
+
+                const products = {
+                    product:idProduct,
+                    quantity:1
+                }
+                await this.cartsDb.updateOne({_id: idCarts},{$push:{products:products}}) 
+           
+            }
         })
+            
         .catch(async()=>{
 
             console.log('No existe el ID del carrito')
             
             //await this.postCarts()
         })
-
+    }
 }
-}
 
+// put 
+// const filter = {_id: idCarts}
+// const update = {products: [
+//     {
+//       product:  idProduct,
+//       quantity: 1
+//     }
+//   ]}
 
-
-
-
-
-
-
+// await this.cartsDb.updateOne(filter,update,{new: true,upsert: true}) 
