@@ -1,22 +1,24 @@
 <h2>{{encabezado}} </h2>
 
-
-
-{{#if productExist}}
-    <ul>
-        {{#each product}}
-            <li>
-                <p>id = {{this.id}}</p>
-                <p>title = {{this.title}}</p>
-                <p>description = {{this.description}}</p>
-                <p>prince = {{this.prince}}</p>
-                <p>status = {{this.status}}</p>
-                <p>stock = {{this.stock}}</p>
-                <p>category = {{this.category}}</p>
-                <p>thumbnail = {{this.thumbnail}}</p>
-            </li>
-        {{/each}}  
-    </ul>
+{{#if hayDocs}}
+<ul>
+  {{#each docs}}
+  <li>title: {{this.title}}</li>
+  <li>description: {{this.description}}</li>
+  <li>price: {{this.price}}</li>
+  <li>thumbnail: {{this.thumbnail}}</li>
+  <li>stock: {{this.stock}}</li>
+  <li>code: {{this.code}}</li>
+  <li>category: {{this.category}}</li>
+  <li>status: {{this.status}}</li>
+  <br>
+  {{/each}}
+</ul>
 {{else}}
-    <p> Sin Productos</p>
+array vacio...
 {{/if}}
+<div class="containerBtn">
+    <button id="btnAnterior">PAGINA ANTERIOR</button>
+    <h5>Pagina <span id="pag"></span></h5>
+    <button id="btnSiguiente">PAGINA SIGUIENTE</button>
+</div>

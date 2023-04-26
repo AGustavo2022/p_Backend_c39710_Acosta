@@ -1,27 +1,37 @@
-import mongoose, { Schema } from 'mongoose'
-
-
-const schemaProducts = new Schema({
-    title: { type: String, required: true },
-    description: { type: String, required: true },
-    price: { type: Number, required: true, min: 0 },
-    thumbnail: { type: String, required: true },
-    stock: { type: Number, required: true, min: 1 },
-    code: { type: String, required: true },
-    category: { type: String, required: true },
-    status: { type: Boolean, required: true }
-}, { versionKey: false })
-
+import { productModel } from "./models/product.model.js"
 
 export class ProductDBManager {
 
     constructor() {
-        this.productsDb = mongoose.model('products', schemaProducts)
+        this.productsDb = productModel
     }
     
     async getProduct() {
         const productsDb = await this.productsDb.find().lean()
         return productsDb
+    }
+
+    async getProductQuery(queryList) {
+
+        const {limit, page, query, sort} = queryList
+        const criterioDeBusqueda = {
+            query
+        }
+        const opcionesDePaginacion = {
+            limit,
+            page,
+            lean: true 
+        }
+        const result = await productModel.paginate(criterioDeBusqueda, opcionesDePaginacion)
+        if (sort != undefined){           
+            const result = await productModel.aggregate([
+            {
+                $sort: {price: parseInt(sort) }
+            }
+        ])
+        return result
+        }
+       return result
     }
 
     async addProduct (producto) {        
