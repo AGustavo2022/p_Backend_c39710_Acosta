@@ -1,6 +1,5 @@
 <h2>{{encabezado}} </h2>
 
-
 {{#if hayDocs}}
 <ul>
   {{#each docs}}
@@ -18,8 +17,8 @@
 {{else}}
 array vacio...
 {{/if}}
-
-<a {{#if hasPrevPage}} href="/api/products/?limit={{limit}}&page={{prevPage}}" {{/if}}>Prev</a>
-[{{ page }}]
-<a {{#if hasNextPage}} href="/api/products/?limit={{limit}}&page={{nextPage}}" {{/if}}>Next</a><br>
-
+<div class="containerBtn">
+    <button id="btnAnterior">PAGINA ANTERIOR</button>
+    <h5>Pagina <span id="pag"></span></h5>
+    <button id="btnSiguiente">PAGINA SIGUIENTE</button>
+</div>

@@ -12,7 +12,6 @@ export class ProductDBManager {
     }
 
     async getProductQuery(queryList) {
-
         const {limit, page, query, sort} = queryList
         const criterioDeBusqueda = {
             query
@@ -20,18 +19,24 @@ export class ProductDBManager {
         const opcionesDePaginacion = {
             limit,
             page,
+            sort,
             lean: true 
         }
-        const result = await productModel.paginate(criterioDeBusqueda, opcionesDePaginacion)
-        if (sort != undefined){           
-            const result = await productModel.aggregate([
-            {
-                $sort: {price: parseInt(sort) }
+        if (sort == undefined){
+            const result = await productModel.paginate(criterioDeBusqueda, opcionesDePaginacion)
+            return result
+        }else{
+            const opcionesDePaginacion = {
+                limit,
+                page,
+                sort: {price: parseInt(sort)},
+                lean: true 
             }
-        ])
-        return result
+            const result = await productModel.paginate(criterioDeBusqueda, opcionesDePaginacion)
+            return result
         }
-       return result
+        
+        
     }
 
     async addProduct (producto) {        

@@ -1,23 +1,9 @@
-import mongoose, {Schema} from 'mongoose'
-
-
-const schemaCarts = new Schema({
-    products: [
-          {
-            product: { type: Schema.Types.ObjectId, ref: 'products' },
-            quantity: { type: Number, required: true }
-          }
-        ]
-}, { versionKey: false })
-
-schemaCarts.pre('find', function(){
-    this.populate('products.product')
-})
+import { cartsModel } from "./models/cart.model.js"
 
 export class CartsDBManager {
 
     constructor() {
-        this.cartsDb = mongoose.model('carts', schemaCarts)
+        this.cartsDb = cartsModel
     }
 
     async getCarts() {
