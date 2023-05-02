@@ -1,5 +1,11 @@
 <h2>{{encabezado}} </h2>
 
+<form id="formLogout">
+  <button type="submit">Logout</button>
+</form>
+
+Usuario:{{nick}}
+
 
 {{#if hayDocs}}
 <ul>
@@ -23,3 +29,4 @@ array vacio...
 [{{ page }}]
 <a {{#if hasNextPage}} href="/api/products/?limit={{limit}}&page={{nextPage}}" {{/if}}>Next</a><br>
 
+<script src="/js/logout.js"></script>

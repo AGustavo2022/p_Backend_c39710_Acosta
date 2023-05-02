@@ -1,8 +1,9 @@
 import { ProductDBManager } from '../dao/productDBManager.js'
+import { postSesiones } from './sesiones.controller.js'
 
 const productosDb = new ProductDBManager()
 
-export const getProductsAll = async (req,res)=>{
+export  async function getProductsAll (req,res) {
 
     let limit = req.query.limit ?? 5
     let page = req.query.page ?? 1
@@ -12,7 +13,7 @@ export const getProductsAll = async (req,res)=>{
     let queryList = {limit, page, sort, query}
 
     const payload = await productosDb.getProductQuery(queryList)
-    console.log(payload)
+    const name = req.session.user.name
     res.render('products', {
 
         titulo: 'Products', 
@@ -27,29 +28,30 @@ export const getProductsAll = async (req,res)=>{
         hasPrevPage: payload.hasPrevPage,
         prevPage: payload.prevPage,
         pagingCounter: payload.pagingCounter,
+        nick: name
     })
 }
 
-export const getProductId =  async (req,res)=>{
+export async function getProductId (req,res){
     let id = req.params.pid
     const idProducto = await productosDb.getProductById(id)
     res.send(idProducto )
 }
 
-export const postProduct = async (req,res)=>{
+export async function postProduct (req,res) {
     const product = req.body
     await productosDb.addProduct(product)
     res.send('ok')
 }
 
-export const putProduct = async (req,res)=>{
+export async function putProduct (req,res) {
     let id = req.params.pid
     const product = req.body
     const putProduct = await productosDb.updateProduct(id,product)
     res.send(putProduct)
 }
 
-export const deleteProduct =  async (req,res)=>{
+export async function deleteProduct (req,res) {
     let id = req.params.pid
     const newProduct = await productosDb.deleteProductId(id)
     res.send(newProduct)
