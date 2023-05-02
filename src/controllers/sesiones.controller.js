@@ -1,7 +1,6 @@
 import { usersModel } from "../dao/models/usuarios.model.js"
 
 
-
 export async function postSesiones ( req, res, next) {
     console.log(req.body)
 
@@ -14,7 +13,7 @@ export async function postSesiones ( req, res, next) {
   
     req.session.user = {
       name: usuarioEncontrado.nick,
-      email: usuarioEncontrado.email,
+      email: usuarioEncontrado.email
     }
   
     res.status(201).json(req.session.user)

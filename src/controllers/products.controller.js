@@ -14,6 +14,8 @@ export  async function getProductsAll (req,res) {
 
     const payload = await productosDb.getProductQuery(queryList)
     const name = req.session.user.name
+    const roles = req.session.user.roles
+
     res.render('products', {
 
         titulo: 'Products', 
@@ -28,7 +30,8 @@ export  async function getProductsAll (req,res) {
         hasPrevPage: payload.hasPrevPage,
         prevPage: payload.prevPage,
         pagingCounter: payload.pagingCounter,
-        nick: name
+        nick: name,
+        roles : roles
     })
 }
 
