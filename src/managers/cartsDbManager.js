@@ -1,4 +1,4 @@
-import { cartsModel } from "./models/cart.model.js"
+import { cartsModel } from "../dao/models/cart.model.js"
 
 export class CartsDBManager {
 
@@ -16,6 +16,7 @@ export class CartsDBManager {
         return cartsDb
     }
 
+  
     async postCarts() {
         await this.cartsDb.create({
             products:[]

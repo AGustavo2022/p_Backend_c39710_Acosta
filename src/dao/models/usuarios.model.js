@@ -4,8 +4,10 @@ const usersCollection = "users"
 
 const schemaUsers = new Schema({
     email: { type: String, required: true, unique:true},
-    nick: { type: String, required: true},
-    password: { type: String, required: true} 
+    name: { type: String, required: true},
+    lastname: { type: String, required: true},
+    password: { type: String, required: true},
+    rol: { type: String, enum: ['user', 'admin'], default: 'user' }
     
 }, { versionKey: false })
 

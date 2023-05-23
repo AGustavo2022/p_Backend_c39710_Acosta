@@ -1,4 +1,4 @@
-import { ProductDBManager } from '../dao/productDBManager.js'
+import { ProductDBManager } from '../managers/productDBManager.js'
 import { postSesiones } from './sesiones.controller.js'
 
 const productosDb = new ProductDBManager()

@@ -1,4 +1,5 @@
-import { productModel } from "./models/product.model.js"
+import { Products } from "../classes/product.classes.js"
+import { productModel } from "../dao/models/product.model.js"
 
 export class ProductDBManager {
 
@@ -45,7 +46,7 @@ export class ProductDBManager {
         if (idProducto) {
             throw new Error ('El producto ya existe')
         }  
-        await this.productsDb.create(producto)
+        await this.productsDb.create(new Products(producto))
     }
     
     async getProductById (id) {    

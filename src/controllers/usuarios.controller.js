@@ -1,13 +1,27 @@
-import { usersModel } from "../dao/models/usuarios.model.js"
+import { UsersDbManager } from "../managers/usersDbManager.js"
+import { criptografiador } from "../utils/criptografia.js"
+
+const usuariosDB = new UsersDbManager()
 
 export async function postUsuarios(req, res, next) {
-    console.log(req.body)
-    const usuarioCreado = await usersModel.create(req.body)
+
+    const datosUsuario = req.body
+    
+    try{
+      datosUsuario.password = criptografiador.hashear(datosUsuario.password)
+      
+      const usuarioGuardado = await usuariosDB.postUsers(datosUsuario)
+
+      const token = criptografiador.generarToken(usuarioGuardado)
+
+      res.cookie('authToken', token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
+
+      req['io'].sockets.emit('usuarios', await usuariosDB.getUsers())
+
+      res.status(201).json(usuarioGuardado)
   
-    req.session.user = {
-      name: usuarioCreado.nick,
-      email: usuarioCreado.email
     }
-  
-    res.status(201).json(usuarioCreado)
+    catch {
+
+    }
   }
