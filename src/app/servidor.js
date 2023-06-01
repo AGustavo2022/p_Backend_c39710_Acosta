@@ -7,6 +7,7 @@ import { webRouter } from "../routers/webRouter.js"
 import session from "../middleware/session.js"
 import { Server } from 'socket.io'
 import cookieParser from "cookie-parser"
+import { conectar } from "../database/mongoose.js";
 
 
 
@@ -19,15 +20,6 @@ app.use(express.static('./public'))
 ///////
 
 
-const server = app.listen(PORT, () => {
-    console.log(`servidor escuchando en puerto ${PORT}`)
-})
-
-const io = new Server(server)
-
-io.on('connection', async socket => {
-    console.log('cliente nuevo conectado')
-})
 
 app.use(cookieParser(COOKIE_SECRET))
 
@@ -47,3 +39,6 @@ app.use(session)
 app.use('/api', apiRouter)
 app.use('/', webRouter)
 
+await conectar()
+
+app.listen(PORT, ()=>console.log(`!Servidor arriba en el puerto ${PORT}!`))
