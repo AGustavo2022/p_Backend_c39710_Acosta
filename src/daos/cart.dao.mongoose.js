@@ -1,8 +1,9 @@
 import mongoose, { Schema } from 'mongoose'
+import { DaoMongoose } from './daoMongoose.js'
 
-const CartsCollection = "carts"
 
-const schemaCarts = new Schema({
+const cartSchema = new mongoose.Schema({
+    id: {type: String, require: true},
     products: [
         {
             product: { type: Schema.Types.ObjectId, ref: 'products' },
@@ -11,8 +12,10 @@ const schemaCarts = new Schema({
     ]
 }, { versionKey: false })
 
-schemaCarts.pre('find', function(){
+cartSchema.pre('find', function(){
     this.populate('products.product')
 })
 
-export const cartsModel = mongoose.model(CartsCollection, schemaCarts)
+const cartsModel = mongoose.model('carts', cartSchema)
+
+export const cartsDaoMongoose = new DaoMongoose(cartsModel)

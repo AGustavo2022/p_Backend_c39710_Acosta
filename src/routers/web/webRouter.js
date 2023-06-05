@@ -1,6 +1,6 @@
 import express, { Router } from "express"
-import { registerView } from "../controllers/register.controllers.js"
-import { loginView } from "../controllers/login.controller.js"
+import { registerView } from "../../controllers/register.controllers.js"
+import { loginView } from "../../controllers/login.controller.js"
 
 
 export const webRouter = Router()
