@@ -26,17 +26,17 @@ export async function handlePost(req, res, next) {
 
 
   try{
-      const datosUsuario = new User(req.body)
+      const datosUsuarioBoby = new User(req.body)
       
-    
-  
-      //usuarioNuevo.password = criptografiador.hashear(usuarioNuevo.password)
-      
-      const usuarioGuardado = await usuariosRepository.create(datosUsuario.dto())
+      const datosUsuarios = datosUsuarioBoby.dto()
 
-      // const token = criptografiador.generarToken(usuarioGuardado)
+      datosUsuarios.password = criptografiador.hashear(datosUsuarios.password)
 
-      // res.cookie('authToken', token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
+      const usuarioGuardado = await usuariosRepository.create(datosUsuarios)
+
+      const token = criptografiador.generarToken(usuarioGuardado)
+
+      res.cookie('authToken', token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
 
       // req['io'].sockets.emit('usuarios', await usuariosDB.getUsers())
 
@@ -47,15 +47,3 @@ export async function handlePost(req, res, next) {
 
     }
   }
-
-
-
-  
-  // #id
-  // #first_name
-  // #last_name
-  // #email
-  // #age
-  // #password
-  // #cart
-  // #role

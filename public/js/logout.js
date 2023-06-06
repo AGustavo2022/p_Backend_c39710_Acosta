@@ -4,7 +4,7 @@ if (formLogout instanceof HTMLFormElement) {
   formLogout.addEventListener('submit', async event => {
     event.preventDefault()
 
-    const { status } = await fetch('/api/sesiones', {
+    const { status } = await fetch('/api/session', {
       method: 'DELETE'
     })
 

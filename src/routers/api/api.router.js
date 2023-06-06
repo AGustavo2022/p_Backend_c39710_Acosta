@@ -2,7 +2,7 @@ import express, { Router } from 'express'
 import { productsRouter } from './products.router.js'
 import {cartsRouter} from './carts.router.js'
 import { usuariosRouter} from './users.router.js'
-//import { seccionesRouter } from './sesiones.router.js'
+import { sessionRouter } from './session.router.js'
 
 export const apiRouter = Router()
 
@@ -15,5 +15,5 @@ apiRouter.use('/products', productsRouter)
 apiRouter.use('/carts', cartsRouter)
 
 apiRouter.use('/user', usuariosRouter)
-//apiRouter.use('/sesiones', seccionesRouter)
+apiRouter.use('/session', sessionRouter)
 

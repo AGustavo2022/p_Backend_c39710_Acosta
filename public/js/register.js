@@ -8,6 +8,8 @@ if (formRegister instanceof HTMLFormElement) {
     const input_lastname = document.querySelector('#input_lastname')
     const input_email = document.querySelector('#input_email')
     const input_password = document.querySelector('#input_password')
+    const input_age = document.querySelector('#input_age')
+    const input_cart = document.querySelector('#input_cart')
     const input_rol = document.querySelector('#input_rol')
 
     if (
@@ -15,20 +17,22 @@ if (formRegister instanceof HTMLFormElement) {
       input_lastname instanceof HTMLInputElement &&
       input_email instanceof HTMLInputElement &&
       input_password instanceof HTMLInputElement &&
+      input_age instanceof HTMLInputElement &&
+      input_cart instanceof HTMLInputElement &&
       input_rol instanceof HTMLInputElement
     ) {
 
       const datosUsuario = {
+        first_name: input_name.value,
+        last_name: input_lastname.value,
         email: input_email.value,
+        age: parseInt(input_age.value) ,
         password: input_password.value,
-        name: input_name.value,
-        lastname: input_lastname.value,
+        cart: input_cart.value,
         rol: input_rol.value
       }
 
-      console.log(datosUsuario)
-      
-      const usuarioCreado = await fetch('/api/usuarios', {
+      const usuarioCreado = await fetch('/api/user', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -37,6 +41,7 @@ if (formRegister instanceof HTMLFormElement) {
         body: JSON.stringify(datosUsuario)
       }).then(res => res.json())
 
+      console.log(usuarioCreado)
     }
   })
 }
