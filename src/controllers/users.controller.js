@@ -1,6 +1,7 @@
 import { User } from "../models/user.models.js"
 import { usuariosRepository } from "../repositories/user.repository.js"
 import { criptografiador } from "../utils/criptografia.js"
+import { cartsService } from '../services/carts.services.js'
 
 
 
@@ -24,13 +25,16 @@ export async function handleGet(req, res, next) {
 
 export async function handlePost(req, res, next) {
 
-
   try{
       const datosUsuarioBoby = new User(req.body)
       
       const datosUsuarios = datosUsuarioBoby.dto()
 
       datosUsuarios.password = criptografiador.hashear(datosUsuarios.password)
+
+      //const cartUser = await cartsService.postCart()
+
+      datosUsuarios.cart = "test"
 
       const usuarioGuardado = await usuariosRepository.create(datosUsuarios)
 

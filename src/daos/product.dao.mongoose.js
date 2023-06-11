@@ -1,6 +1,8 @@
 import mongoose, { Schema } from 'mongoose'
 import { DaoMongoose } from './daoMongoose.js'
+import mongoosePaginate from 'mongoose-paginate-v2'
 
+const ProductsCollection = "products"
 
 const productosSchema = new Schema({
     id: {type: String, require: true},
@@ -14,6 +16,8 @@ const productosSchema = new Schema({
     status: { type: Boolean, required: true }
 }, { versionKey: false })
 
-const productosModel = mongoose.model('products', productosSchema)
+productosSchema.plugin(mongoosePaginate)
+
+const productosModel = mongoose.model(ProductsCollection, productosSchema)
 
 export const productosDaoMongoose = new DaoMongoose(productosModel)

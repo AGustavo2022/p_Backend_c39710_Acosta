@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 import { DaoMongoose } from './daoMongoose.js'
 
+const ProductsCollection = 'carts'
 
 const cartSchema = new mongoose.Schema({
     id: {type: String, require: true},
@@ -16,6 +17,6 @@ cartSchema.pre('find', function(){
     this.populate('products.product')
 })
 
-const cartsModel = mongoose.model('carts', cartSchema)
+const cartsModel = mongoose.model(ProductsCollection, cartSchema)
 
 export const cartsDaoMongoose = new DaoMongoose(cartsModel)

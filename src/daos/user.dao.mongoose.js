@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 import { DaoMongoose } from './daoMongoose.js'
 
+const ProductsCollection = "users"
 
 const schemaUsers = new Schema({
     id: { type: String, required: true},
@@ -15,6 +16,6 @@ const schemaUsers = new Schema({
 }, { versionKey: false })
 
 
-const usersModel = mongoose.model('users', schemaUsers)
+const usersModel = mongoose.model(ProductsCollection, schemaUsers)
 
 export const userDaoMongoose = new DaoMongoose(usersModel)

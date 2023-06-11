@@ -1,7 +1,6 @@
-//import { carts } from '../models/carts.models.js'
+import { Carts } from "../models/carts.models.js"
 import { productosRepository } from '../repositories/products.repository.js'
 import { cartsRepository } from "../repositories/carts.repository.js"
-
 
 class CartsService {
     
@@ -21,6 +20,19 @@ class CartsService {
         cartsRepository.updateOne({id:idCart}, {$push:{products:products }})
 
     }
+
+    // async postCart() {
+
+    //     const cart = new Carts(arr, arr2)
+        
+    //     console.log(creada)
+        
+    //     const creada = await cartsRepository.create(cart.dto())
+
+        
+        
+    //     return creada
+    // }
 }
 
 export const cartsService = new CartsService()

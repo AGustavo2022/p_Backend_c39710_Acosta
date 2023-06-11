@@ -1,17 +1,35 @@
 <h1>Registro</h1>
-<form action="" id="formRegister">
-  <label for="input_name">Nombre</label> <input id="input_name" type="text"placeholder="Ingrese Nombre"><br>
-  <label for="input_lastname">Apellido</label> <input id="input_lastname" type="text"placeholder="Ingrese Apellido"><br>
-  <label for="input_email">Email</label> <input id="input_email" type="email" placeholder="Ingrese email"><br>
-  <label for="input_password">password</label> <input id="input_password" type="password" placeholder="password"><br>
-  <label for="input_age">edad</label> <input id="input_age" type="age" placeholder="edad"><br>
-  <label for="input_cart">Cart</label> <input id="input_cart" type="cart" placeholder="carrito"><br>
-  <label for="input_rol">Rol</label> <input id="input_rol" type="text"placeholder="Ingrese Rol"><br>
-  <button type="submit" onclick="limpiarFormulario()">Enviar</button>
-</form>
 
-{{!-- <script src="/socket.io/socket.io.js"></script> --}}
+<div class="box">
+  <form action="" id="formRegister">
+    <div class="etiqueta">
+      <label for="input_name">Nombre</label> <input id="input_name" type="text" placeholder="Ingrese Nombre"><br>
+    </div>
+    <div class="etiqueta">
+      <label for="input_lastname">Apellido</label> <input id="input_lastname" type="text"placeholder="Ingrese Apellido"><br>
+    </div>
+    <div class="etiqueta">
+      <label for="input_email">Email</label> <input id="input_email" type="email" placeholder="Ingrese email"><br> 
+    </div> 
+    <div class="etiqueta">
+      <label for="input_password">password</label> <input id="input_password" type="password" placeholder="password"><br>  
+    </div>  
+    <div class="etiqueta">
+      <label for="input_age">edad</label> <input id="input_age" type="age" placeholder="edad"><br>  
+    </div>  
+    <div class="etiqueta">
+      <label for="input_cart">Cart</label> <input id="input_cart" type="cart" placeholder="carrito"><br>  
+    </div>
+    <div class="etiqueta">
+      <label for="input_rol">Rol</label> <input id="input_rol" type="text" placeholder="Ingrese Rol"><br>
+    </div>     
+    <button type="submit" onclick="limpiarFormulario()">Enviar</button>
+  </form>
+</div>
+
+{{!--
+<script src="/socket.io/socket.io.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
-    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/register.js"></script>

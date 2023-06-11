@@ -2,4 +2,18 @@ ul {
     list-style: none;
 }
 
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 
+.etiqueta {
+    padding-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}

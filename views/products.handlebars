@@ -1,11 +1,16 @@
 <h2>{{encabezado}} </h2>
 
-<form id="formLogout">
-  <button type="submit">Logout</button>
-</form>
-
-Usuario:{{nick}} <br>
-Roles: {{roles}}
+<nav>
+  <div class="loguot">
+    <form id="formLogout">
+      <button type="submit">Logout</button>
+    </form>
+  </div>
+  <div class="user">
+    Usuario:{{nick}} <br>
+    Roles: {{role}}
+  </div>
+</nav>
 
 
 {{#if hayDocs}}

@@ -27,7 +27,7 @@ if (formLogin instanceof HTMLFormElement) {
       })
 
       if (status === 201) {
-        window.location.href = '/api/products'
+        window.location.href = '/products'
       } else {
         window.location.href = '/register'
       }
