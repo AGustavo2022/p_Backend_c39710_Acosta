@@ -32,8 +32,6 @@ if (formRegister instanceof HTMLFormElement) {
         rol: input_rol.value
       }
 
-      console.log(datosUsuario)
-
       const usuarioCreado = await fetch('/api/user', {
         method: 'POST',
         headers: {
@@ -43,7 +41,6 @@ if (formRegister instanceof HTMLFormElement) {
         body: JSON.stringify(datosUsuario)
       }).then(res => res.json())
 
-      console.log(usuarioCreado)
     }
   })
 }

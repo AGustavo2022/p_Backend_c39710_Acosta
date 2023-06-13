@@ -12,27 +12,32 @@
   </div>
 </nav>
 
-
 {{#if hayDocs}}
 <ul>
-  {{#each docs}}
-  <li>title: {{this.title}}</li>
-  <li>description: {{this.description}}</li>
-  <li>price: {{this.price}}</li>
-  <li>thumbnail: {{this.thumbnail}}</li>
-  <li>stock: {{this.stock}}</li>
-  <li>code: {{this.code}}</li>
-  <li>category: {{this.category}}</li>
-  <li>status: {{this.status}}</li>
-  <br>
-  {{/each}}
+    {{#each docs}}
+  <div class="etiqueta">
+    <li>id:{{this.id}}</li>
+    <li>title: {{this.title}}</li>
+    <li>description: {{this.description}}</li>
+    <li>price: {{this.price}}</li>
+    <li>thumbnail: {{this.thumbnail}}</li>
+    <li>stock: {{this.stock}}</li>
+    <li>code: {{this.code}}</li>
+    <li>category: {{this.category}}</li>
+    <li>status: {{this.status}}</li>
+    <form id="formAddToCart">
+      <button type="submit">Agregar al Carrito</button>
+    </form>
+  </div>
+    {{/each}}
 </ul>
 {{else}}
 array vacio...
 {{/if}}
 
-<a {{#if hasPrevPage}} href="/api/products/?limit={{limit}}&page={{prevPage}}" {{/if}}>Prev</a>
+<a {{#if hasPrevPage}} href="/products/?limit={{limit}}&page={{prevPage}}" {{/if}}>Prev</a>
 [{{ page }}]
-<a {{#if hasNextPage}} href="/api/products/?limit={{limit}}&page={{nextPage}}" {{/if}}>Next</a><br>
+<a {{#if hasNextPage}} href="/products/?limit={{limit}}&page={{nextPage}}" {{/if}}>Next</a><br>
 
 <script src="/js/logout.js"></script>
+<script src="/js/addToCart.js"></script>

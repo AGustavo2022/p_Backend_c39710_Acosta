@@ -1,6 +1,4 @@
-import * as session from '../controllers/sesiones.controller.js'
 import { productosDaoMongoose } from '../daos/product.dao.mongoose.js'
-//import { productosRepository } from '../repositories/products.repository.js'
 
 
 export async function handleLogin(req, res, next) {
@@ -33,11 +31,10 @@ export async function handleProducts(req, res, next) {
     }
 
     const payload = await productosDaoMongoose.paginateMongoose(criterioDeBusqueda,opcionesDePaginacion)
-    console.log(payload)
 
     const name = req.session.user.name
     const role = req.session.user.role
-
+    
     res.render('products', {
 
         titulo: 'Products',
@@ -55,4 +52,5 @@ export async function handleProducts(req, res, next) {
         nick: name,
         role: role
     })
+
 }

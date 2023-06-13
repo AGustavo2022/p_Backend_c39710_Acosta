@@ -78,7 +78,9 @@ export class DaoMongoose {
       limit,
       page,
       sort,
-      lean: true}
+      lean: true,
+      leanWithId: false
+    }
 
     if (sort == undefined) {
       const result = await this.#model.paginate(criterioDeBusqueda,opcionesDePaginacion)
