@@ -29,7 +29,6 @@ export async function isAuthenticated(req, res, next) {
 }
 
 export function isAdmin(req, res, next) {
-  console.log(req.user.role === 'admin')
   req.user.role === 'admin'? next():res.status(403).json({error: 'not authorized. only logged in users allowed'})
 }
 

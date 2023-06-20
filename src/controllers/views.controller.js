@@ -1,4 +1,5 @@
 import { productosDaoMongoose } from '../daos/product.dao.mongoose.js'
+import { criptografiador } from '../utils/criptografia.js'
 
 
 export async function handleLogin(req, res, next) {
@@ -32,6 +33,10 @@ export async function handleProducts(req, res, next) {
 
     const payload = await productosDaoMongoose.paginateMongoose(criterioDeBusqueda,opcionesDePaginacion)
 
+    const userDate = await criptografiador.decodificarToken(req['accessToken'])
+
+
+
     // const name = req.session.user.name
     // const role = req.session.user.role
     
@@ -49,8 +54,8 @@ export async function handleProducts(req, res, next) {
         hasPrevPage: payload.hasPrevPage,
         prevPage: payload.prevPage,
         pagingCounter: payload.pagingCounter,
-        // nick: name,
-        // role: role
+        nick: userDate.first_name,
+        role: userDate.role
     })
 
 }

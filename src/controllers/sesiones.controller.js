@@ -12,13 +12,7 @@ export async function handlePost ( req, res, next) {
     if (passwordBody === false) {
       return res.sendStatus(401)
     }
-  
-    const usuarioWeb = {
-      name: usuarioEncontrado.first_name,
-      email: usuarioEncontrado.email,
-      role : usuarioEncontrado.role
-    }
-
+    
     const access_token = criptografiador.generarToken(usuarioEncontrado)
 
     res.cookie('authToken', access_token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
@@ -30,4 +24,20 @@ export async function handlePost ( req, res, next) {
   export async function handleDelete (req, res, next) {
     res.clearCookie('authToken', {signed: true,httpOnly: true})
     res.sendStatus(200)
+}
+
+export async function handleCurrent (req, res, next) {
+  
+  const payload = await criptografiador.decodificarToken(req['accessToken'])
+  req.user = payload
+
+  const userData = {
+    email: payload.email,
+    first_name: payload.first_name,
+    last_name: payload.last_name,
+    age: payload.age,
+    role: payload.role
+  }
+
+  res.json({userData })
 }
