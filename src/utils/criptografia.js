@@ -12,7 +12,7 @@ class Criptografia {
   }
 
   generarToken(dato) {
-    return jwt.sign(dato, JWT_SECRET, { expiresIn: '1h' })
+    return jwt.sign(dato, JWT_SECRET, { expiresIn: '24h' })
   }
 
   decodificarToken(token) {

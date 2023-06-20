@@ -26,9 +26,9 @@ export async function handleGet(req, res, next) {
 export async function handlePost(req, res, next) {
 
   try{
-      const datosUsuarioBoby = new User(req.body)
+      const datosUsuarioBody = new User(req.body)
       
-      const datosUsuarios = datosUsuarioBoby.dto()
+      const datosUsuarios = datosUsuarioBody.dto()
 
       datosUsuarios.password = criptografiador.hashear(datosUsuarios.password)
 
@@ -38,9 +38,9 @@ export async function handlePost(req, res, next) {
 
       const usuarioGuardado = await usuariosRepository.create(datosUsuarios)
 
-      const token = criptografiador.generarToken(usuarioGuardado)
+      const access_token = criptografiador.generarToken(usuarioGuardado)
 
-      res.cookie('authToken', token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
+      res.cookie('authToken', access_token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
 
       // req['io'].sockets.emit('usuarios', await usuariosDB.getUsers())
 

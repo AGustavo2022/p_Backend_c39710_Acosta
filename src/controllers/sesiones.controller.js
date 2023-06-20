@@ -13,18 +13,21 @@ export async function handlePost ( req, res, next) {
       return res.sendStatus(401)
     }
   
-    req.session.user = {
+    const usuarioWeb = {
       name: usuarioEncontrado.first_name,
       email: usuarioEncontrado.email,
       role : usuarioEncontrado.role
     }
-  
-    res.status(201).json(req.session.user)
+
+    const access_token = criptografiador.generarToken(usuarioEncontrado)
+
+    res.cookie('authToken', access_token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
+
+    res.status(201).json(usuarioEncontrado)
+
   }
   
   export async function handleDelete (req, res, next) {
-    req.session.destroy(err => {
-      res.sendStatus(200)
-    })
-
+    res.clearCookie('authToken', {signed: true,httpOnly: true})
+    res.sendStatus(200)
 }

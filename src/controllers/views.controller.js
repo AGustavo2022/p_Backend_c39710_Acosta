@@ -32,8 +32,8 @@ export async function handleProducts(req, res, next) {
 
     const payload = await productosDaoMongoose.paginateMongoose(criterioDeBusqueda,opcionesDePaginacion)
 
-    const name = req.session.user.name
-    const role = req.session.user.role
+    // const name = req.session.user.name
+    // const role = req.session.user.role
     
     res.render('products', {
 
@@ -49,8 +49,8 @@ export async function handleProducts(req, res, next) {
         hasPrevPage: payload.hasPrevPage,
         prevPage: payload.prevPage,
         pagingCounter: payload.pagingCounter,
-        nick: name,
-        role: role
+        // nick: name,
+        // role: role
     })
 
 }
