@@ -3,21 +3,19 @@ import { newId } from "../utils/id.js"
 export class Carts {
 
     #id
-    #products
+    #productsCarts
 
-    constructor({
-        id = newId(), 
-        products = []
-        }) {
+    constructor({id = newId(),  productsCarts = []}) {
             this.#id = id
-            this.#products = products
-
+            this.#productsCarts = productsCarts
+            
     }
 
     dto() {
         return{
             id: this.#id,
-            products: this.#products, 
+            productsCarts: this.#productsCarts,
+
         }
     }
 }

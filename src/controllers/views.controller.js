@@ -1,4 +1,6 @@
+import { cartsDaoMongoose, cartsModel } from '../daos/cart.dao.mongoose.js'
 import { productosDaoMongoose } from '../daos/product.dao.mongoose.js'
+import { cartsRepository } from '../repositories/carts.repository.js'
 import { criptografiador } from '../utils/criptografia.js'
 
 
@@ -35,11 +37,6 @@ export async function handleProducts(req, res, next) {
 
     const userDate = await criptografiador.decodificarToken(req['accessToken'])
 
-
-
-    // const name = req.session.user.name
-    // const role = req.session.user.role
-    
     res.render('products', {
 
         titulo: 'Products',
@@ -57,5 +54,25 @@ export async function handleProducts(req, res, next) {
         nick: userDate.first_name,
         role: userDate.role
     })
+
+}
+
+export async function handleCarts(req, res, next) {
+
+    const query = req.params.id
+    const myCart = await cartsRepository.readOne(query)
+
+  
+
+    const myCart2 = await cartsModel.findOne().populate('productsCart')
+
+    //myCart2.populate('products')
+
+
+    // res.render('carts', {
+    //     titulo: 'Cart'
+    // })
+
+    res.json(myCart2)
 
 }

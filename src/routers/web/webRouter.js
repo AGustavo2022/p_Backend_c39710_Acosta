@@ -13,6 +13,7 @@ webRouter.use(express.static('./public'))
 webRouter.get('/login', viewsController.handleLogin)
 webRouter.get('/register', viewsController.handleRegister)
 webRouter.get('/products', isAuthenticated, viewsController.handleProducts)
+webRouter.get('/cart/:cid', viewsController.handleCarts)
 
 
 
