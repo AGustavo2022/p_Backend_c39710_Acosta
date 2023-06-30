@@ -37,6 +37,11 @@ export class DaoMongoose {
     return result
   }
 
+  async readMany2(criteria) {
+    const result = await this.#model.find(criteria).lean()
+    return result
+  }
+
   async updateOne(criteria, newData) {
     const modifiedUser = await this.#model.findOneAndUpdate(criteria, newData, {
       new: true,

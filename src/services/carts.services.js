@@ -11,42 +11,58 @@ class CartsService {
         const [carts] = await cartsRepository.readMany({ id: idCart })
         if (!carts) throw new Error('No se puede agregar al carrito: CARRITO no encontrado')
 
-        const [product] = await productosRepository.readMany({ _id: idProduct })
+        const [product] = await productosRepository.readManyProduct ({ id: idProduct })
         if (!product) throw new Error('No se puede agregar al carrito: PRODUCTO no encontrado')
 
-        // const products = {
-        //     id: product.id,
-        //     qty : 1
-        // } 
+        const existe = carts.productsCart.find(p=> p.product.toString() === product._id.toString())
 
-        // console.log (products)
+        //console.log(carts)
 
-        cartsRepository.updateOne(
-            {id:idCart}, 
-            {
-                $push:
-                {
-                    productsCart:[{
-                        product: idProduct,
-                        quantity: 1
-                    }] 
-                }
-            })
+        //const a1 = product._id.toString()
 
+        //const indice = (carts.productsCart.indexOf(existe._id.toString()))
+
+        const indice = carts.productsCart.find
+
+        //console.log(a1)
+        console.log(indice)
+
+        // if (existe === undefined) {
+
+
+        //     cartsRepository.updateOne({
+        //         id: idCart
+        //     }, {
+        //         $push: {
+        //             productsCart: [{
+        //                 product: product._id,
+        //                 quantity: 1
+        //             }]
+        //         }
+        //     })
+        // }else{
+        //     const a1 = product._id.toString()
+
+        //     const indice = (productsCart.indexOf(existe._id.toString()))
+
+        //     //console.log(a1)
+        //     console.log(indice)
+
+        //     //console.log(carts.productsCart[1].quantity)
+
+        //     // cartsRepository.updateOne({
+        //     //     id: idCart, 'productsCart.products'
+        //     // }, {
+        //     //     $push: {
+        //     //         productsCart: [{
+        //     //             quantity: 3
+        //     //         }]
+        //     //     }
+        //     // })
+        // }
+    
     }
 
-    // async postCart() {
-
-    //     const cart = new Carts(arr, arr2)
-        
-    //     console.log(creada)
-        
-    //     const creada = await cartsRepository.create(cart.dto())
-
-        
-        
-    //     return creada
-    // }
 }
 
 export const cartsService = new CartsService()

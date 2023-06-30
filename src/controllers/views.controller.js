@@ -64,7 +64,7 @@ export async function handleCarts(req, res, next) {
 
   
 
-    const myCart2 = await cartsModel.findOne().populate('productsCart')
+    const myCart2 = await cartsModel.findOne(query).populate('productsCart')
 
     //myCart2.populate('products')
 

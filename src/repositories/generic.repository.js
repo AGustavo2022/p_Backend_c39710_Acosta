@@ -17,6 +17,10 @@ export class GenericRepository {
     readMany(criteria, options) {
       return this.#dao.readMany(criteria)
     }
+
+    readManyProduct(criteria, options) {
+      return this.#dao.readMany2(criteria)
+    }
   
     updateOne(criteria, newData, options) {
       return this.#dao.updateOne(criteria, newData)
