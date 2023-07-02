@@ -1,6 +1,5 @@
 import { newId } from "../utils/id.js"
 
-
 export class User {
 
   #id
@@ -13,16 +12,16 @@ export class User {
   #role
 
   constructor({
-    id = newId(), 
-    first_name,
-    last_name,
-    email,
-    age,
-    password,
-    cart,
-    role
+      id = newId(),
+      first_name,
+      last_name,
+      email,
+      age,
+      password,
+      cart,
+      role
 
-  }) {
+    }) {
     this.#id = id
     this.#first_name = first_name
     this.#last_name = last_name

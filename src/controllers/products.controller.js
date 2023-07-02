@@ -1,45 +1,42 @@
-import { Products } from '../models/product.models.js'
-import { productosRepository } from '../repositories/products.repository.js'
-
+import { productsService } from '../services/products.services.js'
 
 export async function handleGet(req, res, next) {
-    try {
-      if (req.params.id) {
-        const buscado = await productosRepository.readOne({ id: req.params.id })
-        res.json(buscado)
-      } else {
-        const productos = await productosRepository.readMany(req.query)
-        res.json(productos)
-      }
-    } catch (error) {
-      next(error)
-    }
+  const pid = req.params.id
+  try {
+    const buscado = await productsService.getProducts(pid)
+    res.json(buscado)
+  } catch (error) {
+    next(error)
+  }
 }
 
 export async function handlePost(req, res, next) {
-    try {
-      const producto = new Products(req.body)
-      const creado = await productosRepository.create(producto.dto())
-      res.status(201).json(creado)
-    } catch (error) {
-      next(error)
-    }
+  const producto = req.body
+  try {
+    const creado = await productsService.postProduct(producto)
+    res.status(201).json(creado)
+  } catch (error) {
+    next(error)
+  }
 }
-  
+
 export async function handlePut(req, res, next) {
-    try {
-      const actualizado = await productosRepository.updateOne(req.params.id, req.body)
-      res.json(actualizado)
-    } catch (error) {
-      next(error)
-    }
+  const pid = req.params.id
+  const updatedProduct = req.body
+  try {
+    const updated = await productsService.putProduct(pid, updatedProduct)
+    res.json(updated)
+  } catch (error) {
+    next(error)
+  }
 }
-  
+
 export async function handleDelete(req, res, next) {
-    try {
-      const borrado = await productosRepository.deleteOne(req.params.id)
-      res.json(borrado)
-    } catch (error) {
-      next(error)
-    }
+  const product = req.params.id
+  try {
+    const deleteProduct = await productsService.deleteProduct(product)
+    res.json(deleteProduct)
+  } catch (error) {
+    next(error)
+  }
 }

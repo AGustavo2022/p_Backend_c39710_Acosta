@@ -1,29 +1,36 @@
-import { usuariosRepository } from "../repositories/user.repository.js"
+import { sessionService } from "../services/session.service.js"
 import { criptografiador } from "../utils/criptografia.js"
 
-export async function handlePost ( req, res, next) {
+export async function handlePost(req, res, next) {
 
-    const usuarioEncontrado = await usuariosRepository.readOne({ email: req.body.email })
+    const email = req.body.email
+    const password = req.body.password
 
-    const passwordBody = criptografiador.comparar(req.body.password,usuarioEncontrado.password)
+    try {
+      const usuarioEncontrado = await sessionService.postSession(email, password)
 
-    if (!usuarioEncontrado) return res.sendStatus(401)
-  
-    if (passwordBody === false) {
-      return res.sendStatus(401)
+      const access_token = criptografiador.generarToken(usuarioEncontrado)
+
+      res.cookie('authToken', access_token, {
+        httpOnly: true,
+        signed: true,
+        maxAge: 1000 * 60 * 60 * 24
+      })
+
+      res.status(201).json(usuarioEncontrado)
+
+    } catch (error) {
+      next(error)
     }
-    
-    const access_token = criptografiador.generarToken(usuarioEncontrado)
 
-    res.cookie('authToken', access_token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
+}
 
-    res.status(201).json(usuarioEncontrado)
-
-  }
-  
-  export async function handleDelete (req, res, next) {
-    res.clearCookie('authToken', {signed: true,httpOnly: true})
-    res.sendStatus(200)
+export async function handleDelete(req, res, next) {
+  res.clearCookie('authToken', {
+    signed: true,
+    httpOnly: true
+  })
+  res.sendStatus(200)
 }
 
 export async function handleCurrent (req, res, next) {
