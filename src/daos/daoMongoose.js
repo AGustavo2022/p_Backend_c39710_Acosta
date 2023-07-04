@@ -22,6 +22,11 @@ export class DaoMongoose {
     return pojo
   }
 
+  async create2(element) {
+    const pojo = toPojo(await this.#model.create(element))
+    return pojo
+  }
+
   async readOne(criteria) {
     const result = await this.#model.findOne(criteria).select({
       _id: 0

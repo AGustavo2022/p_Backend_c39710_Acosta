@@ -12,7 +12,7 @@ export async function handleGet(req, res, next) {
 }
 
 export async function handlePost(req, res, next) {
-  const cart = req.body
+  const cart = {}
   try {
     const creada = await cartsService.postCarts(cart)
     res.status(201).json(creada)

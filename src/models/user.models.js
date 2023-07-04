@@ -1,5 +1,16 @@
 import { newId } from "../utils/id.js"
 
+function roles (role){
+  if (role === undefined){
+    const role = 'user' 
+    return role
+  }else{
+    const role = 'admin'
+    return role
+  }
+
+}
+
 export class User {
 
   #id
@@ -8,7 +19,6 @@ export class User {
   #email
   #age
   #password
-  #cart
   #role
 
   constructor({
@@ -18,8 +28,7 @@ export class User {
       email,
       age,
       password,
-      cart,
-      role
+      role = roles()
 
     }) {
     this.#id = id
@@ -28,7 +37,6 @@ export class User {
     this.#email = email
     this.#age = age
     this.#password = password
-    this.#cart = cart
     this.#role = role
   }
 
@@ -40,8 +48,8 @@ export class User {
         email: this.#email,
         age: this.#age,
         password: this.#password,
-        cart: this.#cart, 
         role:  this.#role
     }
-}
+  }
+
 }

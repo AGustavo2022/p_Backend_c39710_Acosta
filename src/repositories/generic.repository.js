@@ -9,6 +9,10 @@ export class GenericRepository {
     create(data, options) {
       return this.#dao.create(data)
     }
+
+    createIdMongoose(data, options) {
+      return this.#dao.create2(data)
+    }
   
     readOne(criteria, options) {
       return this.#dao.readOne(criteria)

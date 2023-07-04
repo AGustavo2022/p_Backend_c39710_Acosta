@@ -1,6 +1,7 @@
 import { User } from "../models/user.models.js"
 import { usuariosRepository } from "../repositories/user.repository.js"
 import { criptografiador } from "../utils/criptografia.js"
+import { cartsService } from "./carts.services.js"
 
 
 
@@ -26,9 +27,14 @@ class UserService {
 
         datosUsuarios.password = criptografiador.hashear(datosUsuarios.password)
         
-        datosUsuarios.cart = "test"
-  
-        const usuarioGuardado = await usuariosRepository.create(datosUsuarios)
+        const newCart = await cartsService.postCarts({})
+
+        const nuevoUsuario = {
+            ...datosUsuarios,
+            cart : newCart._id
+        }
+
+        const usuarioGuardado = await usuariosRepository.create(nuevoUsuario)
 
         return usuarioGuardado
     }
