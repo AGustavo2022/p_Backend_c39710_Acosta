@@ -1,8 +1,6 @@
-import {
-    newId
-} from "../utils/id.js"
+import {newId} from "../utils/id.js"
 
-export class ticket {
+export class Ticket {
     #coder
     #purchase_datetime
     #amount
@@ -10,7 +8,7 @@ export class ticket {
 
     constructor({
         coder = newId(),
-        purchase_datetime = new Date().toLocaleDateString(),
+        purchase_datetime = new Date().toLocaleString(),
         amount,
         purchaser
     }) {

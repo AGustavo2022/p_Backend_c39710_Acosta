@@ -22,36 +22,60 @@ export async function handlePost(req, res, next) {
 }
 
 export async function handleDelete(req, res, next) {
-  const cart = req.params.id
-  try {
-    const deleteCart = await cartsService.deleteCart(cart)
-    res.json(deleteCart)
-  } catch (error) {
-    next(error)
+  const cid = req.params.cid
+  const pid = req.params.pid
+  if (pid === undefined) {
+    try {
+      const deleteCart = await cartsService.deleteCart(cid)
+      res.json(deleteCart)
+    } catch (error) {
+      next(error)
+    }
+  } else {
+    try {
+      const deleteCartProduct = await cartsService.deleteCartProduct(cid, pid)
+      res.json(deleteCartProduct)
+    } catch (error) {
+      next(error)
+    }
   }
+
 }
 
 //revisar funcionalidad handlePut
 export async function handlePut(req, res, next) {
-  const cid = req.params.id
-  const updatedCart = req.body
+  const cid = req.params.cid
+  const pid = req.params.pid
+  const qty = req.body
   try {
-    const updated = await cartsService.putCart(cid, updatedCart)
+    const updated = await cartsService.putCartQty(cid, pid, qty)
     res.json(updated)
   } catch (error) {
     next(error)
   }
+
 }
 /***********/
 
 export async function handlePostProduct(req, res, next) {
   try {
-    const idCart = req.params.cid
-    const idProduct = req.params.pid
-    const agregado = await cartsService.agregarAlCarrito(idCart, idProduct)
+    const cid = req.params.cid
+    const pid = req.params.pid
+    const agregado = await cartsService.agregarAlCarrito(cid, pid)
     res.status(201).json(agregado)
   } catch (error) {
     next(error)
   }
 }
+
+export async function handlePostPurchase(req, res, next) {
+  try {
+    const idCart = req.params.cid
+    const generarTickets  = await cartsService.generarTickets(idCart)
+    res.status(201).json(generarTickets)
+  } catch (error) {
+    next(error)
+  }
+}
+
 

@@ -22,7 +22,7 @@ export class GenericRepository {
       return this.#dao.readMany(criteria)
     }
 
-    readManyProduct(criteria, options) {
+    readManyIdMongoose(criteria, options) {
       return this.#dao.readMany2(criteria)
     }
   

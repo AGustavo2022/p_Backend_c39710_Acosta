@@ -16,6 +16,14 @@ class ProductsService {
         }
     }
 
+    async getProductsMongoose(pid) {
+
+        const buscado = await productosRepository.readManyIdMongoose({
+            id: pid
+        })
+        return buscado
+    }
+
     async postProduct (newData) {
         const product = new Products(newData)
         const creado = await productosRepository.create(product.dto())
@@ -23,7 +31,7 @@ class ProductsService {
     }
 
     async putProduct (pid, updatedProduct ) {
-        const putProduct = await productosRepository.updateOne({ id: pid }, updatedProduct)
+        const putProduct = await productosRepository.updateOne({ _id: pid }, updatedProduct)
         return putProduct
     }
 

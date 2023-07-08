@@ -19,6 +19,13 @@ class UserService {
         }
     }
 
+    async getUserMongoose(uid) {
+        const buscado = await usuariosRepository.readManyIdMongoose({
+            cart: uid
+        })
+        return buscado
+    }
+
     async postUser (user) {
         
         const datosUsuarioBody = new User(user)
