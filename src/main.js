@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import mongoose from 'mongoose'
 import  { app } from './app/servidor.js'
 import { MONGODB_CNX_STR } from './config/database.config.js'
