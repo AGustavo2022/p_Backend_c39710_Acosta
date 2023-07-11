@@ -6,7 +6,9 @@
   "main": "src/main.js",
   "scripts": {
     "start": "node .",
-    "test": "nodemon ."
+    "test": "nodemon .",
+    "start:dev": "NODE_ENV=DEV nodemon src/main.js",
+    "start:prod": "NODE_ENV=PROD nodemon src/main.js"
   },
   "repository": {
     "type": "git",
@@ -34,7 +36,8 @@
     "passport-github2": "^0.1.12",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
-    "socket.io": "^4.6.1"
+    "socket.io": "^4.6.1",
+    "winston": "^3.9.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",

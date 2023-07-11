@@ -1,6 +1,7 @@
 import express, { Router } from "express"
 import * as viewsController from "../../controllers/views.controller.js"
 import { isAuthenticated } from "../../middleware/authentication.js"
+import { manejoDeErroresWeb } from "../../middleware/manejosDeErrorresRest.js"
 
 
 export const webRouter = Router()
@@ -15,5 +16,6 @@ webRouter.get('/register', viewsController.handleRegister)
 webRouter.get('/products', isAuthenticated, viewsController.handleProducts)
 webRouter.get('/cart/:cid', viewsController.handleCarts)
 
+webRouter.use(manejoDeErroresWeb)
 
 

@@ -3,6 +3,7 @@ import { productsRouter } from './products.router.js'
 import {cartsRouter} from './carts.router.js'
 import { usuariosRouter} from './users.router.js'
 import { sessionRouter } from './session.router.js'
+import { manejoDeErroresRest} from '../../middleware/manejosDeErrorresRest.js'
 
 export const apiRouter = Router()
 
@@ -17,3 +18,4 @@ apiRouter.use('/carts', cartsRouter)
 apiRouter.use('/user', usuariosRouter)
 apiRouter.use('/session', sessionRouter)
 
+apiRouter.use(manejoDeErroresRest)
