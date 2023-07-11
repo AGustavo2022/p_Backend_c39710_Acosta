@@ -1,0 +1,2 @@
+{"level":"info","message":"base de datos conectada a mongodb://127.0.0.1:27017/ecommerce"}
+{"level":"info","message":"!Servidor arriba en el puerto 3000!"}

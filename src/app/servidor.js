@@ -5,6 +5,7 @@ import { engine } from 'express-handlebars'
 import { apiRouter } from "../routers/api/api.router.js"
 import { webRouter } from "../routers/web/webRouter.js"
 import { extraerToken } from "../middleware/authentication.js"
+import { logger} from "../middleware/logger.js"
 
 
 
@@ -20,6 +21,7 @@ app.use(express.static('./public'))
 app.use(cookieParser(COOKIE_SECRET))
 app.use(extraerToken)
 
+app.use(logger)
 
 // app.use((req, res, next) => {
 //     req['io'] = io

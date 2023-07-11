@@ -18,7 +18,6 @@ export async function handlePost(req, res, next) {
     const creada = await usersService.postUser(userBody)
     
     const access_token = criptografiador.generarToken(creada)
-
     res.cookie('authToken', access_token, { httpOnly: true, signed: true, maxAge: 1000 * 60 * 60 * 24 })
     res.status(201).json(creada)
   } catch (error) {

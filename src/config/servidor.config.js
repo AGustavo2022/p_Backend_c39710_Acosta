@@ -11,4 +11,3 @@ if (process.env.NODE_ENV === 'PROD') {
 }
 
 export const NODE_ENV = process.env.NODE_ENV || 'DEV'
-export const LOG_LEVEL = parseInt(process.env.LOG_LEVEL || '10')
