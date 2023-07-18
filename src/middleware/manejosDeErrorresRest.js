@@ -16,6 +16,7 @@ export function manejoDeErroresRest(error, req, res, next) {
     }
   
     if (error.message === 'NOT FOUND') {
+      req.logger.error("error NOT FOUND")
       return res.status(404).send('<H1>No encontrado</H1>')
     }
   

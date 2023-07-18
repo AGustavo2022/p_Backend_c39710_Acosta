@@ -7,6 +7,7 @@ export async function handleGet(req, res, next) {
     const buscado = await cartsService.getCarts(cid)
     res.json(buscado)
   } catch (error) {
+    req.logger.error("error en GET Carts")
     next(error)
   }
 }
@@ -17,6 +18,7 @@ export async function handlePost(req, res, next) {
     const creada = await cartsService.postCarts(cart)
     res.status(201).json(creada)
   } catch (error) {
+    req.logger.error("Error al crear la Cart")
     next(error)
   }
 }
@@ -28,6 +30,7 @@ export async function handleDelete(req, res, next) {
     try {
       const deleteCart = await cartsService.deleteCart(cid)
       res.json(deleteCart)
+      req.logger.warn(`Cart eliminada`)
     } catch (error) {
       next(error)
     }

@@ -2,10 +2,12 @@ import { productsService } from '../services/products.services.js'
 
 export async function handleGet(req, res, next) {
   const pid = req.params.id
+  //req.logger.http('entre al GEt de usuario')
   try {
     const buscado = await productsService.getProducts(pid)
     res.json(buscado)
   } catch (error) {
+    req.logger.error('get product error')
     next(error)
   }
 }
