@@ -8,10 +8,7 @@ export function manejoDeErroresRest(error, req, res, next) {
   
   export function manejoDeErroresWeb(error, req, res, next) {
     if (error.message === 'AUTHENTICATION ERROR') {
-      return res.redirect('/login')
-    }
-  
-    if (error.message === 'AUTHORIZATION ERROR') {
+      req.logger.error("error AUTHENTICATION ERROR")
       return res.redirect('/login')
     }
   

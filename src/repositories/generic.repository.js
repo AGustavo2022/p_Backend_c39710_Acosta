@@ -1,3 +1,4 @@
+
 export class GenericRepository {
     #dao
     constructor(dao) {

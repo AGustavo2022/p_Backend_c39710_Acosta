@@ -11,6 +11,7 @@ apiRouter.use(express.json())
 apiRouter.use(express.urlencoded({ extended: true }))
 apiRouter.use(express.static('./public'))
 
+apiRouter.use(manejoDeErroresRest)
 
 apiRouter.use('/products', productsRouter)
 apiRouter.use('/carts', cartsRouter)
@@ -18,4 +19,3 @@ apiRouter.use('/carts', cartsRouter)
 apiRouter.use('/user', usuariosRouter)
 apiRouter.use('/session', sessionRouter)
 
-apiRouter.use(manejoDeErroresRest)

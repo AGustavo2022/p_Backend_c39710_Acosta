@@ -31,7 +31,7 @@ export class DaoMongoose {
     const result = await this.#model.findOne(criteria).select({
       _id: 0
     }).lean()
-    if (!result) throw new Error('NOT FOUND')
+    if (!result) {throw new Error('NOT FOUND')}
     return result
   }
 

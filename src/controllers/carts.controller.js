@@ -3,6 +3,7 @@ import { cartsService } from '../services/carts.services.js'
 
 export async function handleGet(req, res, next) {
   const cid = req.params.id
+  req.logger.http("entre al GET de Carts")
   try {
     const buscado = await cartsService.getCarts(cid)
     res.json(buscado)

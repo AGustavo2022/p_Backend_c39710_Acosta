@@ -4,6 +4,7 @@ import {Ticket} from "../models/ticket.models.js"
 import {productsService} from "./products.services.js"
 import { usersService } from "./user.service.js"
 import { isValidObjectId } from "mongoose"
+import { winstonLogger } from "../utils/logger.utils.js"
 
 
 class CartsService {
@@ -18,6 +19,7 @@ class CartsService {
             return buscado
         } else {
             const carts = await cartsRepository.readMany()
+            winstonLogger.verbose('entré al dao de usuarios (readMany). criterio de busqueda')
             return carts
         }
     }
